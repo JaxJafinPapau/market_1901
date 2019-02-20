@@ -14,4 +14,11 @@ class Vendor
       0
     end
   end
+
+  def stock(item, quantity)
+    holder_hash = {item => quantity}
+    @inventory.merge!(holder_hash) do |key, old_val, new_val|
+      old_val + new_val
+    end
+  end
 end
